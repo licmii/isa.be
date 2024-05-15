@@ -1,11 +1,19 @@
 package com.example.demo.models;
 
+import com.example.demo.validators.ContactNumberConstraint;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 public class UserModel {
     private int id;
-    private String firstName,lastName, email,contactNumber;
+    @NotBlank
+    private String firstName,lastName;
+    @Email
+    private String email;
+    @ContactNumberConstraint
+    private String contactNumber;
 
 
 }
